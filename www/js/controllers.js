@@ -56,50 +56,35 @@ angular.module('careville.controllers', [])
 })
 
 // Opps == Opportunities
-.controller('OppsCtrl', function($scope, TDCardDelegate, $ionicSideMenuDelegate) {
+.controller('OppsCtrl', function($scope, $http, TDCardDelegate, $ionicSideMenuDelegate) {
   // prevent side menu dragging from intefering with card
   $ionicSideMenuDelegate.canDragContent(false);
 
-  var opps = [
-    { vwo_name: 'Presbyterian Community Services',
-      title: 'Help sort donations',
-      date: '23-28 November 2015',
-      location: 'Bukit Merah',
-      beneficiary: 'Local Community',
-      banner_url: '/img/help_sort_donations.png',
-      n_signed_up: 54,
-      n_needed: 60,
-      commitment: '4hrs',
-      days_left: 8
-    },
-    { vwo_name: 'Another vwo',
-      title: 'something else',
-      date: '23-28 November 2015',
-      location: 'Bukit Merah',
-      beneficiary: 'Local Community',
-      banner_url: '/img/help_sort_donations.png',
-      n_signed_up: 54,
-      n_needed: 60,
-      commitment: '4hrs',
-      days_left: 8
-    }
-  ];
+  $http.get('http://rojaks2dev.cafecompassion.com/api/v1/opps').then(
+  function(resp){
+    console.log(resp);
+    $scope.opps = resp.data;
+  }, function(err) {
+    console.error(err);
+  })
 
-  $scope.opps = Array.prototype.slice.call(opps, 0);
-
-  $scope.cardDestroyed = function(index) {
-    console.log('cardDestroyed, index: ', index);
-    console.log('opps: ', opps);
-    $scope.opps.splice(index, 1);
+  $scope.cardSwipedLeft = function(index) {
+    console.log('cardSwipedLeft, index: ', index);
   };
 
-  $scope.addCard = function() {
+  $scope.cardSwipedRight = function(index) {
+    console.log('cardSwipedRight, index: ', index);
   };
+  //$scope.cardDestroyed = function(index) {
+  //  console.log('cardDestroyed, index: ', index);
+  //  console.log('opps: ', opps);
+  //  $scope.opps.splice(index, 1);
+  //};
+
+  //$scope.addCard = function() {
+  //};
 
 })
 
 .controller('OppCtrl', function($scope, TDCardDelegate){
-  $scope.cardSwipedLeft = function(index) {
-    console.log('cardSwipedLeft');
-  };
 });

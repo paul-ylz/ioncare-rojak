@@ -2,11 +2,11 @@
   <ion-content ng-controller="OppsCtrl">
     <td-cards>
 
-      <td-card
-        ng-repeat="opp in opps"
-      >
+      <td-card ng-repeat="opp in opps | orderBy: 'id'"
+        on-swipe-left="cardSwipedLeft($index)"
+        on-swipe-right="cardSwipedRight($index)"
+        >
         <div class="opp" ng-controller="OppCtrl">
-
           <h3 class="vwo-name"><a href="#">{{opp.vwo_name}}</a></h3>
           <h2 class="title">{{opp.title}}</h2>
           <p class="date">{{opp.date}}</p>
