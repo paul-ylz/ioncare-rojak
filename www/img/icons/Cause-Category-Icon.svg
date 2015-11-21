@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="15px" height="16px" viewBox="0 0 15 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4 (15575) - http://www.bohemiancoding.com/sketch -->
+    <title>Cause-Category</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path id="path-1" d="M0,0.31125 L14.68875,0.31125 L14.68875,15 L0,15"></path>
+    </defs>
+    <g id="Opportunities-Card---Social-Enterprise---Filter" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Opportunity-Card-More-Info---Social-Ent" sketch:type="MSArtboardGroup" transform="translate(-195.000000, -186.000000)">
+            <g id="Cause-Category" sketch:type="MSLayerGroup" transform="translate(195.000000, 186.605201)">
+                <mask id="mask-2" sketch:name="Clip 2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-2"></g>
+                <path d="M11.688525,4.811475 C10.860525,4.811475 10.188525,4.139475 10.188525,3.311475 C10.188525,2.483475 10.860525,1.811475 11.688525,1.811475 C12.516525,1.811475 13.188525,2.483475 13.188525,3.311475 C13.188525,4.139475 12.516525,4.811475 11.688525,4.811475 M13.938525,0.311475 L9.438525,0.311475 C9.026025,0.311475 8.450025,0.549975 8.158275,0.841725 L0.218775,8.781225 C-0.072975,9.072975 -0.072975,9.549975 0.218775,9.841725 L5.158275,14.781225 C5.450025,15.072975 5.927025,15.072975 6.218775,14.781225 L14.158275,6.841725 C14.450025,6.549975 14.688525,5.973975 14.688525,5.561475 L14.688525,1.061475 C14.688525,0.648975 14.351025,0.311475 13.938525,0.311475" id="Fill-1" fill="#03719B" sketch:type="MSShapeGroup" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

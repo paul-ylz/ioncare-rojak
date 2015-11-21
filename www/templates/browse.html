@@ -7,12 +7,50 @@
         on-swipe-right="cardSwipedRight($index)"
         >
         <div class="opp" ng-controller="OppCtrl">
-          <h3 class="vwo-name"><a href="#">{{opp.vwo_name}}</a></h3>
-          <h2 class="title">{{opp.title}}</h2>
-          <p class="date">{{opp.date}}</p>
-          <div class="location">{{opp.location}}</div>
-          <div class="beneficiary">{{opp.beneficiary}}</div>
+
+          <div class="wrap">
+            <h3 class="vwo-name"><a href="#">{{opp.vwo_name}}</a></h3>
+            <h2 class="title">{{opp.title}}</h2>
+            <p class="date">{{opp.date}}</p>
+
+            <div class="row location-beneficiary">
+              <div class="col">
+                <img src="/img/icons/Location-Icon.svg">
+                {{opp.location}}
+              </div>
+              <div class="col">
+                <img src="/img/icons/Cause-Category-Icon.svg">
+                {{opp.beneficiary}}
+              </div>
+            </div>
+          </div>
+
           <img class="banner" src="{{opp.banner_url}}">
+
+          <div class="wrap">
+            <div class="row">
+              <div class="col">
+                <span class="stat">{{opp.n_signed_up}}</span>
+                <p>Volunteers<br> signed up</p>
+              </div>
+              <div class="col">
+                <span class="stat">{{opp.commitment}}</span>
+                <p>Level of Commitment</p>
+              </div>
+              <div class="col">
+                <span class="stat">{{opp.days_left}}</span>
+                <p>Days to go</p>
+              </div>
+            </div>
+
+            <progress value="{{opp.progress}}", max="100">{{opp.progress}}%</progress>
+
+            <p class="needed">
+            {{opp.n_needed}} Volunteers needed
+            </p>
+          </div>
+        </div>
+
         </div>
       </td-card>
     </td-cards>
