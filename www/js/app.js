@@ -1,7 +1,10 @@
-angular.module('careville', ['ionic', 'ionic.contrib.ui.tinderCards', 'careville.controllers'])
+angular.module('careville', ['ionic','ionic.service.core', 'ionic.contrib.ui.tinderCards', 'ionic.service.analytics', 'careville.controllers'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $ionicAnalytics) {
   $ionicPlatform.ready(function() {
+    // Register analytics
+    $ionicAnalytics.register();
+
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
