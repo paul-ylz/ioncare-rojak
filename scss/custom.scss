@@ -3,6 +3,11 @@ body {
   line-height: 1.5;
 }
 
+.bar-header {
+  height: 3.2em;
+  padding-top: 0.5em;
+}
+
 .brand {
   font-style: italic;
   font-weight: bold;
@@ -10,6 +15,42 @@ body {
   font-size: 1.5em;
   position: relative;
   bottom: 1px;
+}
+
+.menu-button {
+  background: url('/img/nav/Menu-icon.svg');
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+  margin: 9px 7px;
+}
+
+.pocket {
+  width: 32px;
+  height: 32px;
+  background: url('/img/nav/Pocket-Icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  padding-top: 6px;
+  padding-right: 5px;
+  margin: 3px 4px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.filter {
+  width: 64px;
+  height: 32px;
+  background: url('/img/nav/filter.svg');
+  background-repeat: no-repeat;
+  font-weight: bold;
+  font-size: 0.8em;
+  margin: 10px 7px;
+}
+
+.divider {
+  margin: 0 4px;
 }
 
 .opp {

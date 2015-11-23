@@ -4,11 +4,17 @@
       <ion-nav-back-button>
       </ion-nav-back-button>
 
-      <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
-        </button>
-        <p class="brand">CareVille</p>
+      <ion-nav-buttons side="primary">
+        <div class="menu-button" menu-toggle="left"></div>
+        <div class="brand"><img src="/img/nav/CareVille-logo.svg" alt="CareVille" /></div>
       </ion-nav-buttons>
+
+      <ion-nav-buttons side="secondary">
+        <div class="filter" ng-click="doFilter()"></div>
+        <img src="/img/nav/line-divider.svg" class="divider" alt="Divider" />
+        <div class="pocket" ng-click="doSomething()">{{ pocketLen }}</div>
+      </ion-nav-buttons>
+
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
@@ -19,7 +25,7 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <!--    
+        <!--
         <ion-item menu-close ng-click="login()">
           Login
         </ion-item>
