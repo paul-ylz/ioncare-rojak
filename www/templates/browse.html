@@ -1,5 +1,5 @@
-<ion-view>
-<ion-content ng-controller="OppsCtrl">
+<ion-view ng-Controller="OppsCtrl">
+<ion-content scroll="false">
 <td-cards>
 
   <td-card ng-repeat="opp in opps | orderBy: 'id'" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="userSwipedRight($index)">
