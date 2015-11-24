@@ -107,3 +107,30 @@ body {
   width: 100%;
 }
 
+.controls {
+  .col {
+    padding: 0;
+  }
+
+  #pass, #more-info, #save {
+    background-repeat: no-repeat;
+    height: 41px;
+    padding: 0;
+    border: none;
+  }
+
+  #pass {
+    background: url('../img/buttons/Pass-Button.png');
+    width: 105px;
+  }
+
+  #more-info {
+    background: url('../img/buttons/More-Info-Button.png');
+    width: 137px;
+  }
+
+  #save {
+    background: url('../img/buttons/Save-Button.png');
+    width: 105px;
+  }
+}

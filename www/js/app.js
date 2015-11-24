@@ -1,9 +1,7 @@
-angular.module('careville', ['ionic','ionic.service.core', 'ionic.contrib.ui.tinderCards', 'ionic.service.analytics', 'careville.controllers'])
+angular.module('careville', ['ionic','ionic.service.core', 'ionic.contrib.ui.tinderCards', 'careville.controllers'])
 
-.run(function($ionicPlatform, $ionicAnalytics) {
+.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
-    // Register analytics
-    $ionicAnalytics.register();
 
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)

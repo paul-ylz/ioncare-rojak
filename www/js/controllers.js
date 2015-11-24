@@ -81,13 +81,34 @@ angular.module('careville.controllers', [])
     console.log('cardSwipedLeft, index: ', index);
   };
 
-  $scope.cardSwipedRight = function(index) {
-    rm = $scope.opps.splice(0, 1);
-    $scope.pocket.push(rm);
-    console.log ('pocket: ' + $scope.pocket);
-    console.log('cardSwipedRight, index: ', index);
-    $rootScope.pocketLen = $scope.pocket.length;
+  $scope.userSwipedRight = function(index) {
+    console.log("userSwipedRight");
+    $scope.pocketCard();
   };
+
+  $scope.pass = function() {
+    alert('pass');
+  };
+
+  $scope.moreInfo = function() {
+    alert('more info');
+  };
+
+  $scope.userPressedSave = function() {
+    console.log("userPressedSave");
+    //$scope.pocketCard();
+    var currentCard = TDCardDelegate.getSwipeableCard($scope);
+    alert(currentCard);
+    //currentCard.swipe();
+  };
+
+  $scope.pocketCard = function() {
+    rm = $scope.opps.shift();
+    $scope.pocket.push(rm);
+    $rootScope.pocketLen = $scope.pocket.length;
+    console.log('pocketed. pocket: ' + $scope.pocket);
+  }
+
   //$scope.cardDestroyed = function(index) {
   //  console.log('cardDestroyed, index: ', index);
   //  console.log('opps: ', opps);
