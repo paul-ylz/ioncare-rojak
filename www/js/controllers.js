@@ -56,7 +56,7 @@ angular.module('careville.controllers', [])
 })
 
 // Opps == Opportunities
-.controller('CardsCtrl', function($scope, $rootScope, $http, TDCardDelegate, $ionicSideMenuDelegate) {
+.controller('CardsCtrl', function($scope, $rootScope, $http, TDCardDelegate, $ionicSideMenuDelegate, $timeout) {
   // prevent side menu dragging from intefering with card
   $ionicSideMenuDelegate.canDragContent(false);
 
@@ -73,12 +73,8 @@ angular.module('careville.controllers', [])
   })
 
   $scope.cardSwipedLeft = function(index) {
-    // take the first card off the stack and move it to the bin
-    rm = $scope.cards.splice(0, 1);
-    $scope.bin.unshift(rm);
-
-    console.log( $scope.bin );
     console.log('cardSwipedLeft, index: ', index);
+    $scope.trashCard();
   };
 
   $scope.userSwipedRight = function(index) {
@@ -87,7 +83,8 @@ angular.module('careville.controllers', [])
   };
 
   $scope.pass = function() {
-    alert('pass');
+    var currentCard = TDCardDelegate.$getByHandle('opps').getFirstCard();
+    currentCard.swipe('left').then($timeout( $scope.trashCard, 250));
   };
 
   $scope.moreInfo = function() {
@@ -96,29 +93,21 @@ angular.module('careville.controllers', [])
 
   $scope.userPressedSave = function() {
     console.log("userPressedSave");
-    //$scope.pocketCard();
-    var currentCard = TDCardDelegate.getSwipeableCard($scope);
-    alert(currentCard);
-    //currentCard.swipe();
+    var currentCard = TDCardDelegate.$getByHandle('opps').getFirstCard();
+    currentCard.swipe('right').then($timeout( $scope.pocketCard, 250));
   };
 
   $scope.pocketCard = function() {
-    rm = $scope.cards.shift();
+    var rm = $scope.cards.shift();
     $scope.pocket.push(rm);
+    // displays the number in the pocket
     $rootScope.pocketLen = $scope.pocket.length;
-    console.log('pocketed. pocket: ' + $scope.pocket);
-  }
+    console.log('pocket: ' + $scope.pocket);
+  };
 
-  //$scope.cardDestroyed = function(index) {
-  //  console.log('cardDestroyed, index: ', index);
-  //  console.log('opps: ', opps);
-  //  $scope.opps.splice(index, 1);
-  //};
-
-  //$scope.addCard = function() {
-  //};
-
-})
-
-.controller('OppCtrl', function($scope, TDCardDelegate){
+  $scope.trashCard = function() {
+    var rm = $scope.cards.shift()
+    $scope.bin.unshift(rm);
+    console.log('bin: ',  $scope.bin );
+  };
 });

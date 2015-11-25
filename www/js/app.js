@@ -68,3 +68,4 @@ angular.module('careville', ['ionic','ionic.service.core', 'ionic.contrib.ui.tin
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/cards');
 });
+

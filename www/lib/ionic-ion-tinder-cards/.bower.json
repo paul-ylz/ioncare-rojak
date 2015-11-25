@@ -25,14 +25,14 @@
   "dependencies": {
     "collide": "1.0.0-beta.3"
   },
-  "_release": "723de6a935",
+  "_release": "507d8c2199",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "723de6a935242a39f082eafac05c11de50412ee4"
+    "commit": "507d8c21997c1c941c9cb22eac68c6116c1a5c8f"
   },
-  "_source": "git://github.com/driftyco/ionic-contrib-tinder-cards.git",
+  "_source": "git://github.com/Bixev/ionic-ion-tinder-cards.git",
   "_target": "*",
-  "_originalSource": "ionic-contrib-tinder-cards",
+  "_originalSource": "Bixev/ionic-ion-tinder-cards",
   "_direct": true
 }
