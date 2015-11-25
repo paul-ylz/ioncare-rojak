@@ -1,49 +1,49 @@
-<ion-view ng-Controller="OppsCtrl">
+<ion-view>
 <ion-content scroll="false">
 <td-cards>
 
-  <td-card ng-repeat="opp in opps | orderBy: 'id'" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="userSwipedRight($index)">
-    <div class="opp" ng-controller="OppCtrl">
+  <td-card ng-repeat="card in cards | orderBy: 'id'" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="userSwipedRight($index)">
+    <div class="card">
 
       <div class="wrap">
-        <h3 class="vwo-name"><a href="#">{{opp.vwo_name}}</a></h3>
-        <h2 class="title">{{opp.title}}</h2>
-        <p class="date">{{opp.date}}</p>
+        <h3 class="vwo-name"><a href="#">{{card.vwo_name}}</a></h3>
+        <h2 class="title">{{card.title}}</h2>
+        <p class="date">{{card.date}}</p>
 
         <div class="row location-beneficiary">
           <div class="col">
             <img src="img/icons/Location-Icon.svg">
-            {{opp.location}}
+            {{card.location}}
           </div>
           <div class="col">
             <img src="img/icons/Cause-Category-Icon.svg">
-            {{opp.beneficiary}}
+            {{card.beneficiary}}
           </div>
         </div>
       </div>
 
-      <img class="banner" src="{{opp.banner_url}}">
+      <img class="banner" src="{{card.banner_url}}">
 
       <div class="wrap">
         <div class="row">
           <div class="col">
-            <span class="stat">{{opp.n_signed_up}}</span>
+            <span class="stat">{{card.n_signed_up}}</span>
             <p>Volunteers<br> signed up</p>
           </div>
           <div class="col">
-            <span class="stat">{{opp.commitment}}</span>
+            <span class="stat">{{card.commitment}}</span>
             <p>Level of Commitment</p>
           </div>
           <div class="col">
-            <span class="stat">{{opp.days_left}}</span>
+            <span class="stat">{{card.days_left}}</span>
             <p>Days to go</p>
           </div>
         </div>
 
-        <progress value="{{opp.progress}}", max="100">{{opp.progress}}%</progress>
+        <progress value="{{card.progress}}", max="100">{{card.progress}}%</progress>
 
         <p class="needed">
-        {{opp.n_needed}} Volunteers needed
+        {{card.n_needed}} Volunteers needed
         </p>
       </div>
 

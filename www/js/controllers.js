@@ -56,25 +56,25 @@ angular.module('careville.controllers', [])
 })
 
 // Opps == Opportunities
-.controller('OppsCtrl', function($scope, $rootScope, $http, TDCardDelegate, $ionicSideMenuDelegate) {
+.controller('CardsCtrl', function($scope, $rootScope, $http, TDCardDelegate, $ionicSideMenuDelegate) {
   // prevent side menu dragging from intefering with card
   $ionicSideMenuDelegate.canDragContent(false);
 
-  $scope.opps = [];
+  $scope.cards = [];
   $scope.bin = [];
   $scope.pocket = [];
 
   $http.get('http://rojaks2dev.cafecompassion.com/api/v1/opps').then(
   function(resp){
     console.log(resp);
-    $scope.opps = resp.data;
+    $scope.cards = resp.data;
   }, function(err) {
     console.error(err);
   })
 
   $scope.cardSwipedLeft = function(index) {
     // take the first card off the stack and move it to the bin
-    rm = $scope.opps.splice(0, 1);
+    rm = $scope.cards.splice(0, 1);
     $scope.bin.unshift(rm);
 
     console.log( $scope.bin );
@@ -103,7 +103,7 @@ angular.module('careville.controllers', [])
   };
 
   $scope.pocketCard = function() {
-    rm = $scope.opps.shift();
+    rm = $scope.cards.shift();
     $scope.pocket.push(rm);
     $rootScope.pocketLen = $scope.pocket.length;
     console.log('pocketed. pocket: ' + $scope.pocket);

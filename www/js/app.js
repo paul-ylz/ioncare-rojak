@@ -36,12 +36,12 @@ angular.module('careville', ['ionic','ionic.service.core', 'ionic.contrib.ui.tin
     }
   })
 
-  .state('app.browse', {
-      url: '/browse',
+  .state('app.cards', {
+      url: '/cards',
       views: {
         'menuContent': {
-          templateUrl: 'templates/browse.html',
-          controller: 'OppsCtrl'
+          templateUrl: 'templates/cards.html',
+          controller: 'CardsCtrl as cards'
         }
       }
     })
@@ -66,5 +66,5 @@ angular.module('careville', ['ionic','ionic.service.core', 'ionic.contrib.ui.tin
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/browse');
+  $urlRouterProvider.otherwise('/app/cards');
 });
