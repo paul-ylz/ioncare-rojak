@@ -33,7 +33,6 @@ body {
   background-position: center;
   text-align: center;
   padding-top: 6px;
-  padding-right: 5px;
   margin: 3px 4px;
   font-size: 0.8em;
   font-weight: bold;
@@ -100,6 +99,16 @@ body {
     font-size: 1.5em;
     font-weight: bold;
   }
+
+  #share {
+    width: 80px;
+    height: 25px;
+    margin-top: 9px;
+    text-indent: -9999px;
+    background: url("../img/buttons/Share-Button.png") no-repeat center;
+    cursor: pointer;
+  }
+
 } // end .card
 
 .td-card {
@@ -112,24 +121,25 @@ body {
     padding: 0;
   }
 
-  #pass, #more-info, #save {
+  button {
     background-repeat: no-repeat;
     height: 41px;
     padding: 0;
     border: none;
-  }
-
-  #pass {
-    background: url('../img/buttons/Pass-Button.png');
-    width: 105px;
-  }
-
-  #more-info {
-    width: 137px;
-  }
-
-  #save {
-    background: url('../img/buttons/Save-Button.png');
-    width: 105px;
+    text-indent: -9999px;
   }
 }
+
+.toggle {
+  -webkit-transition: linear 0.25s;
+  -moz-transition: linear 0.25s;
+  -ms-transition: linear 0.25s;
+  -o-transition: linear 0.25s;
+  transition: linear 0.25s;
+}
+
+.toggle.ng-enter { opacity: 0; }
+.toggle.ng-enter-active { opacity: 1; }
+.toggle.ng-leave { opacity: 1; }
+.toggle.ng-leave-active { opacity: 0; }
+

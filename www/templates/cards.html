@@ -24,8 +24,10 @@
 
       <img class="banner" src="{{card.banner_url}}">
 
-      <div ng-show="showDetails">
-        {{ card.description }}
+      <div class="row toggle" ng-if="showDetail">
+        <div class="col">
+          {{ card.description }}
+        </div>
       </div>
 
       <div class="wrap">
@@ -51,6 +53,27 @@
         </p>
       </div>
 
+      <div class="row toggle" ng-if="showDetail">
+        <div class="col">
+          <button class="button button-block button-positive" id="volunteer">Volunteer</button>
+        </div>
+      </div>
+
+      <div class="row toggle" ng-if="showDetail">
+        <div class="col col-75">
+          <h4>Who else is helping</h4>
+        </div>
+        <div class="col col-25">
+          <div id="share">Share</div>
+        </div>
+      </div>
+
+       <div class="row toggle" ng-if="showDetail">
+        <div class="col">
+          Facebook pics
+        </div>
+      </div>
+
     </div> <!-- marks end of card -->
 
   </td-card>
@@ -61,15 +84,15 @@
 <ion-footer-bar>
 <div class="bar bar-footer controls row">
   <div class="col text-right">
-    <button class="button" id="pass" ng-click="pass()"></button>
+    <button class="button" style="width:105px;background:url('img/buttons/Pass-Button.png')" ng-click="userPressedPass()">Pass</button>
   </div>
 
   <div class="col text-center">
-    <button class="button" id="more-info" style="background-image: url('{{infoButtonBg}}')" ng-click="moreInfo()"></button>
+    <button class="button" style="width:137px;background:url('{{infoButtonBg}}')" ng-click="userPressedMoreInfo()">Toggle details</button>
   </div>
 
   <div class="col text-left">
-    <button class="button  pull-right" id="save" ng-click="userPressedSave()"></button>
+    <button class="button pull-right" style="width:105px;background:url('img/buttons/Save-Button.png')" ng-click="userPressedSave()">Save</button>
   </div>
 </div>
 </ion-footer-bar>

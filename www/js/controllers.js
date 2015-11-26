@@ -55,7 +55,6 @@ angular.module('careville.controllers', [])
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 })
 
-// Opps == Opportunities
 .controller('CardsCtrl', function($scope, $rootScope, opportunities, TDCardDelegate, $ionicSideMenuDelegate, $timeout) {
   // prevent side menu dragging from intefering with card
   $ionicSideMenuDelegate.canDragContent(false);
@@ -63,7 +62,7 @@ angular.module('careville.controllers', [])
   $scope.cards = [];
   $scope.bin = [];
   $scope.pocket = [];
-  $scope.showDetails = false;
+  $scope.showDetail = false;
   $scope.infoButtonBg = 'img/buttons/More-Info-Button.png';
 
   opportunities.list(function(opportunities) {
@@ -72,47 +71,56 @@ angular.module('careville.controllers', [])
 
   $scope.cardSwipedLeft = function(index) {
     console.log('cardSwipedLeft, index: ', index);
-    $scope.trashCard();
+    trashCard();
+  };
+
+  $scope.userPressedPass = function() {
+    var currentCard = TDCardDelegate.$getByHandle('opps').getFirstCard();
+    currentCard.swipe('left').then($timeout( trashCard, 250));
+  };
+
+  $scope.userPressedMoreInfo = function() {
+    $scope.showDetail = !$scope.showDetail;
+    setInfoButtonBg();
   };
 
   $scope.userSwipedRight = function(index) {
     console.log("userSwipedRight");
-    $scope.pocketCard();
-  };
-
-  $scope.pass = function() {
-    var currentCard = TDCardDelegate.$getByHandle('opps').getFirstCard();
-    currentCard.swipe('left').then($timeout( $scope.trashCard, 250));
-  };
-
-
-  $scope.moreInfo = function() {
-    $scope.showDetails = !$scope.showDetails;
-      if ( $scope.showDetails ) {
-        $scope.infoButtonBg = 'img/buttons/Less-Info-Button.png';
-      } else {
-        $scope.infoButtonBg = 'img/buttons/More-Info-Button.png';
-      }
+    saveCard();
   };
 
   $scope.userPressedSave = function() {
     console.log("userPressedSave");
     var currentCard = TDCardDelegate.$getByHandle('opps').getFirstCard();
-    currentCard.swipe('right').then($timeout( $scope.pocketCard, 250));
+    currentCard.swipe('right').then($timeout( saveCard, 250));
   };
 
-  $scope.pocketCard = function() {
+  function saveCard () {
     var rm = $scope.cards.shift();
     $scope.pocket.push(rm);
     // displays the number in the pocket
     $rootScope.pocketLen = $scope.pocket.length;
+    resetMoreInfoButton();
     console.log('pocket: ' + $scope.pocket);
-  };
+  }
 
-  $scope.trashCard = function() {
+  function resetMoreInfoButton () {
+    $scope.showDetail = false;
+    setInfoButtonBg();
+  }
+
+  function trashCard () {
     var rm = $scope.cards.shift()
     $scope.bin.unshift(rm);
+    resetMoreInfoButton();
     console.log('bin: ',  $scope.bin );
-  };
+  }
 
+  function setInfoButtonBg () {
+      if ( $scope.showDetail ) {
+        $scope.infoButtonBg = 'img/buttons/Less-Info-Button.png';
+      } else {
+        $scope.infoButtonBg = 'img/buttons/More-Info-Button.png';
+      }
+  }
 });
