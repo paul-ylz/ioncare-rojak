@@ -56,7 +56,7 @@ angular.module('careville.controllers', [])
 })
 
 // Opps == Opportunities
-.controller('CardsCtrl', function($scope, $rootScope, $http, TDCardDelegate, $ionicSideMenuDelegate, $timeout) {
+.controller('CardsCtrl', function($scope, $rootScope, opportunities, TDCardDelegate, $ionicSideMenuDelegate, $timeout) {
   // prevent side menu dragging from intefering with card
   $ionicSideMenuDelegate.canDragContent(false);
 
@@ -64,13 +64,9 @@ angular.module('careville.controllers', [])
   $scope.bin = [];
   $scope.pocket = [];
 
-  $http.get('http://rojaks2dev.cafecompassion.com/api/v1/opps').then(
-  function(resp){
-    console.log(resp);
-    $scope.cards = resp.data;
-  }, function(err) {
-    console.error(err);
-  })
+  opportunities.list(function(opportunities) {
+    $scope.cards = opportunities;
+  });
 
   $scope.cardSwipedLeft = function(index) {
     console.log('cardSwipedLeft, index: ', index);

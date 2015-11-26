@@ -17,6 +17,21 @@ angular.module('careville', ['ionic','ionic.service.core', 'ionic.contrib.ui.tin
   });
 })
 
+.factory('opportunities', function ($http) {
+
+  function getData (callback) {
+    $http({
+      method: 'GET',
+      url: 'http://rojaks2dev.cafecompassion.com/api/v1/opps',
+      cache: true
+    }).success(callback);
+  }
+
+  return {
+    list: getData
+  };
+})
+
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
