@@ -63,6 +63,8 @@ angular.module('careville.controllers', [])
   $scope.cards = [];
   $scope.bin = [];
   $scope.pocket = [];
+  $scope.showDetails = false;
+  $scope.infoButtonBg = 'img/buttons/More-Info-Button.png';
 
   opportunities.list(function(opportunities) {
     $scope.cards = opportunities;
@@ -83,8 +85,14 @@ angular.module('careville.controllers', [])
     currentCard.swipe('left').then($timeout( $scope.trashCard, 250));
   };
 
+
   $scope.moreInfo = function() {
-    alert('more info');
+    $scope.showDetails = !$scope.showDetails;
+      if ( $scope.showDetails ) {
+        $scope.infoButtonBg = 'img/buttons/Less-Info-Button.png';
+      } else {
+        $scope.infoButtonBg = 'img/buttons/More-Info-Button.png';
+      }
   };
 
   $scope.userPressedSave = function() {
@@ -106,4 +114,5 @@ angular.module('careville.controllers', [])
     $scope.bin.unshift(rm);
     console.log('bin: ',  $scope.bin );
   };
+
 });

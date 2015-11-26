@@ -24,6 +24,10 @@
 
       <img class="banner" src="{{card.banner_url}}">
 
+      <div ng-show="showDetails">
+        {{ card.description }}
+      </div>
+
       <div class="wrap">
         <div class="row">
           <div class="col">
@@ -61,7 +65,7 @@
   </div>
 
   <div class="col text-center">
-    <button class="button" id="more-info" ng-click="moreInfo()"></button>
+    <button class="button" id="more-info" style="background-image: url('{{infoButtonBg}}')" ng-click="moreInfo()"></button>
   </div>
 
   <div class="col text-left">
